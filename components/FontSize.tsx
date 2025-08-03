@@ -23,7 +23,7 @@ const FontSize = () => {
     setInputValue(fontSize.toString());
   }, [fontSize]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
     const value = e.target.value;
     setInputValue(value);
   };
@@ -42,11 +42,11 @@ const FontSize = () => {
     }
   };
 
-  const handleInputKeyDown = (e) => {
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     // Handle Enter key
     if (e.key === 'Enter') {
       handleInputBlur();
-      e.target.blur();
+      e.currentTarget.blur();
     }
   };
 

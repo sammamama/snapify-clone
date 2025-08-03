@@ -5,14 +5,19 @@ import {
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
 
-import React from "react";
+import React, { RefObject } from "react";
 import { Button } from "./button";
 import { Download, Share2 } from "lucide-react";
 
 import { toPng} from 'html-to-image'
 import { toast } from "sonner";
 
-const Export = ({ snippetRef, snippetText = "" }) => {
+interface ExportProps {
+  snippetRef: RefObject<HTMLDivElement | null>;
+  snippetText?: string;
+}
+
+const Export = ({ snippetRef, snippetText = "" }: ExportProps) => {
   const downloadAsImage = async () => {
     if (!snippetRef?.current) return;
 
@@ -39,7 +44,8 @@ const Export = ({ snippetRef, snippetText = "" }) => {
     try {
       await navigator.clipboard.writeText(snippetText);
       toast.success("Copied to clipboard")
-    } catch (error) {
+    } catch (e) {
+      console.log(e)
       toast.error("Failed to copy to clipboard");
     }
   };

@@ -10,8 +10,9 @@ import {
 } from "@/state/atom";
 
 import hljs from "highlight.js";
+import { RefObject } from "react";
 
-const CodeEditor = ({snippetRef}) => {
+const CodeEditor = ({snippetRef}: {snippetRef: RefObject<HTMLDivElement | null>}) => {
   const { backgroundClass } = useBackgroundStore();
   const { themeId, classname } = useThemeStore();
   const { name, code, placeholder, setCode } = useLanguageStore();

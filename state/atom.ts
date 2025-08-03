@@ -1,16 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { themeId, languageType } from "@/types/theme";
-import React from "react";
-import { RiJavascriptFill } from "react-icons/ri";
-import { IconType } from "react-icons/lib";
-
 interface ThemeState {
-  themeId: themeId;
+  themeId: string;
   classname: string;
   themeHref: string;
-  setThemeId: (id: themeId, setClassname: string, setThemeHref: string) => void;
+  setThemeId: (id: string, setClassname: string, setThemeHref: string) => void;
 }
 
 interface BackgroundState {

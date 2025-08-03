@@ -1,12 +1,10 @@
-export type themeId = "light" | "dark" | "glass" | "glass-dark";
-
 export type BackgroundType ={
   name: string,
   class: string
 }
 
 export type Theme = {
-  id: themeId;
+  id: string;
   name: string;
   themeHref: string;
   preview: string;

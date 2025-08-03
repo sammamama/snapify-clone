@@ -1,6 +1,5 @@
 'use client'
 
-import Homepage from "@/components/Homepage";
 import SnapEditor from "@/components/SnapEditor";
 import { useThemeStore } from "@/state/atom";
 

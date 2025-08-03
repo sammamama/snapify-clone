@@ -10,7 +10,7 @@ import Export from "./ui/Export";
 import { useLanguageStore } from "@/state/atom";
 
 const SnapEditor = () => {
-  const snippetRef = useRef(null);
+  const snippetRef = useRef<HTMLDivElement | null>(null);
 
   const {code} = useLanguageStore();
 
