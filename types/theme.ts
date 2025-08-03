@@ -1,16 +1,19 @@
 export type themeId = "light" | "dark" | "glass" | "glass-dark";
 
-export type backgroundIdType = "gradient-1" | "gradient-2" | "gradient-3" | "gradient-4";
-
 export type BackgroundType ={
-  name: backgroundIdType,
+  name: string,
   class: string
 }
 
 export type Theme = {
   id: themeId;
   name: string;
+  themeHref: string;
   preview: string;
   textColor: string;
 };
 
+export type languageType = {
+    name: string;
+    placeholder?: string;
+  };

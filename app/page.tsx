@@ -1,12 +1,20 @@
+'use client'
+
 import Homepage from "@/components/Homepage";
 import SnapEditor from "@/components/SnapEditor";
-import Image from "next/image";
+import { useThemeStore } from "@/state/atom";
 
 export default function Home() {
+  const {themeHref} = useThemeStore();
+  
   return (
     <div className="">
-        {/* <Homepage /> */}
-        <SnapEditor />
+      <link
+        rel="stylesheet"
+        href={themeHref}
+        crossOrigin="anonymous"
+      />
+      <SnapEditor />
     </div>
   );
 }
