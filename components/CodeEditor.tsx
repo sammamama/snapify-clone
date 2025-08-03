@@ -10,17 +10,29 @@ import {
 } from "@/state/atom";
 
 import hljs from "highlight.js";
-import { RefObject } from "react";
+import { RefObject, useEffect } from "react";
 
-const CodeEditor = ({snippetRef}: {snippetRef: RefObject<HTMLDivElement | null>}) => {
+const CodeEditor = ({
+  snippetRef,
+}: {
+  snippetRef: RefObject<HTMLDivElement | null>;
+}) => {
   const { backgroundClass } = useBackgroundStore();
   const { themeId, classname } = useThemeStore();
   const { name, code, placeholder, setCode } = useLanguageStore();
-  const {fontSize} = useFontStore();
+  const { fontSize } = useFontStore();
+
+  const getTextColor = (themeId: string) => {
+    const theme = themeId || "light";
+    return theme.includes("dark") ? "text-neutral-200" : "text-neutral-900";
+  };
 
   return (
     <div>
-      <div ref={snippetRef} className={`h-[100%] lg:min-w-[700px] w-fit max-w-full ${backgroundClass} px-20 py-10`}>
+      <div
+        ref={snippetRef}
+        className={`h-[100%] lg:min-w-[700px] w-fit max-w-full ${backgroundClass} px-20 py-10`}
+      >
         <div className="rounded-xl pb-3">
           <div
             className="relative top-0 rounded-t-xl left-0 flex items-center justify-between
@@ -33,9 +45,8 @@ const CodeEditor = ({snippetRef}: {snippetRef: RefObject<HTMLDivElement | null>}
             </div>
           </div>
           <div
-            className={`${classname} rounded-b-lg ${
-              themeId.includes("dark") ? "text-neutral-200" : "text-neutral-900"
-            } font-light px-10 py-5`}
+            className={`${classname} rounded-b-lg ${getTextColor(themeId)}
+              font-light px-10 py-5`}
           >
             <Editor
               value={code || ""}
