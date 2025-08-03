@@ -34,7 +34,7 @@ const Customize = () => {
                     setThemeId(theme.id, theme.classname, theme.themeHref)
                   }
                   className={` col-span-2 flex
-                      justify-between text-neutral-300 hover:bg-accent hover:text-neutral-900 cursor-pointer ${
+                      justify-between text-neutral-300 hover:bg-accent hover:text-neutral-900 border cursor-pointer ${
                         theme.id === themeId
                           ? "bg-neutral-100 text-neutral-900"
                           : "bg-neutral-800"

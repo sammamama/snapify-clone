@@ -13,9 +13,6 @@ import {
 
 import hljs from "highlight.js";
 
-import { languages } from "@/data/languages";
-import Export from "./ui/Export";
-
 const CodeEditor = ({snippetRef}) => {
   const { backgroundClass } = useBackgroundStore();
   const { themeId, classname } = useThemeStore();

@@ -10,12 +10,14 @@ import { Button } from "./button";
 import { Download, Share2 } from "lucide-react";
 
 import { toPng} from 'html-to-image'
+import { toast } from "sonner";
 
 const Export = ({ snippetRef, snippetText = "" }) => {
   const downloadAsImage = async () => {
     if (!snippetRef?.current) return;
 
     try {
+        toast.info("Downloading data...")
         let imgUrl = await toPng(snippetRef.current, {pixelRatio: 2})
 
         const link = document.createElement('a')
@@ -23,19 +25,22 @@ const Export = ({ snippetRef, snippetText = "" }) => {
         link.download = `snapifi-${Date.now()}.png`
         link.click();
 
+        toast.success("Download as PNG sucessful")
+
     } catch (error) {
       console.error("Failed to download image:", error);
       // Fallback: copy text to clipboard
       await navigator.clipboard.writeText(snippetText);
-      alert("Image download failed. Code copied to clipboard instead!");
+      toast.error("Image download failed. Code copied to clipboard instead!");
     }
   };
 
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(snippetText);
+      toast.success("Copied to clipboard")
     } catch (error) {
-      console.error("Failed to copy to clipboard:", error);
+      toast.error("Failed to copy to clipboard");
     }
   };
 
