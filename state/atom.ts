@@ -32,7 +32,7 @@ export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
       themeId: "glass",
-      classname: "bg-black/20 backdrop-blur border-white/20",
+      classname: "bg-white/50 backdrop-blur border-white/20",
       themeHref:
         "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/1c-light.min.css",
       setThemeId: (id, setClassname, setThemeHref) =>
