@@ -24,7 +24,7 @@ interface LanguageState {
   name: string;
   code: string;
   placeholder? :string;
-  setLanguage: (name: string, code: string) => void;
+  setLanguage: (name: string, code?: string) => void;
   setCode: (code: string) => void;
 }
 

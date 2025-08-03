@@ -18,7 +18,7 @@ import { languages } from "@/data/languages";
 import { useLanguageStore } from "@/state/atom";
 
 const LanguageSelector = () => {
-  const { name, code, setCode, setLanguage } = useLanguageStore();
+  const { name, setLanguage } = useLanguageStore();
   return (
     <div>
       <div>
@@ -41,7 +41,7 @@ const LanguageSelector = () => {
                   (lang) => lang.name === value
                 );
                 if (selectedLanguage) {
-                  setLanguage(selectedLanguage.name, selectedLanguage.code);
+                  setLanguage(selectedLanguage.name);
                 }
               }}
             >

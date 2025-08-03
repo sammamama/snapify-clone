@@ -18,7 +18,7 @@ const Export = ({ snippetRef, snippetText = "" }) => {
 
     try {
         toast.info("Downloading data...")
-        let imgUrl = await toPng(snippetRef.current, {pixelRatio: 2})
+        const imgUrl = await toPng(snippetRef.current, {pixelRatio: 2})
 
         const link = document.createElement('a')
         link.href = imgUrl;
